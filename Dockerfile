@@ -7,5 +7,5 @@ RUN mvn clean package -DskipTests
 
 # Package stage
 FROM tomcat:9.0-jdk11
-COPY --from=build /app/EcommerceApp/target/EcommerceApp.war /usr/local/tomcat/webapps/
+COPY --from=build /app/EcommerceApp/target/EcommerceApp.war /usr/local/tomcat/webapps/ROOT.war
 EXPOSE 8080
