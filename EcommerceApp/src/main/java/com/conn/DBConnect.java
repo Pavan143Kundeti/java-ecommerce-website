@@ -13,9 +13,9 @@ public class DBConnect
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection(
-				"jdbc:mysql://localhost:3306/ecommerceapp?useSSL=false&serverTimezone=UTC",
-				"root", // <-- replace with your MySQL username
-				"Pavan@3048"  // <-- replace with your MySQL password
+				"jdbc:mysql://mysql-3abbf63-java-ecommerce-application.f.aivencloud.com:28545/defaultdb?ssl-mode=REQUIRED",
+				System.getenv("DB_USER"),
+				System.getenv("DB_PASS")
 			);
 		}catch (Exception e) {
 			e.printStackTrace();
