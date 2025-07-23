@@ -65,8 +65,9 @@ if (cookies[i].getName().equals("cart"))
 	<div class = "container border">
 	<br>
 	<%
-	int Total = 0;
-	String ct = N;
+	// Always get the logged-in user's name from the session
+	javax.servlet.http.HttpSession session = request.getSession(false);
+	String N = (session != null) ? (String) session.getAttribute("username") : null;
 	DAO2 dao = new DAO2(DBConnect.getConn());
 	List<cart> listv = dao.getcart(ct);
 	for(cart v : listv)
