@@ -65,8 +65,7 @@ if (cookies[i].getName().equals("cart"))
 	<div class = "container border">
 	<br>
 	<%
-	// Always get the logged-in user's name from the session
-	javax.servlet.http.HttpSession session = request.getSession(false);
+	// Use the implicit session object provided by JSP
 	String username = (session != null) ? (String) session.getAttribute("username") : null;
 	int Total = 0;
 	DAO2 dao = new DAO2(DBConnect.getConn());
