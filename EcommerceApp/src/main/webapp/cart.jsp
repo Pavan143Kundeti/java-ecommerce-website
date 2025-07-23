@@ -68,6 +68,7 @@ if (cookies[i].getName().equals("cart"))
 	// Always get the logged-in user's name from the session
 	javax.servlet.http.HttpSession session = request.getSession(false);
 	String username = (session != null) ? (String) session.getAttribute("username") : null;
+	int Total = 0;
 	DAO2 dao = new DAO2(DBConnect.getConn());
 	List<cart> listv = dao.getcart(username);
 	for(cart v : listv)
