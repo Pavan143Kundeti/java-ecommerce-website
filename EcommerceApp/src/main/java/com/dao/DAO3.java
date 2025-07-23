@@ -250,7 +250,7 @@ public class DAO3 {
 				
 				int i = 0;
 				try{
-					String sql = "insert into cart values(?,?,?,?,?,?,?)" ;
+					String sql = "insert into cart (Name, bname, cname, pname, pprice, pquantity, pimage) values(?,?,?,?,?,?,?)" ;
 					PreparedStatement ps = conn.prepareStatement(sql);
 				
 				ps.setString(1, c.getName());
