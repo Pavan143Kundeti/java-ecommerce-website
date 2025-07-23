@@ -67,9 +67,9 @@ if (cookies[i].getName().equals("cart"))
 	<%
 	// Always get the logged-in user's name from the session
 	javax.servlet.http.HttpSession session = request.getSession(false);
-	String N = (session != null) ? (String) session.getAttribute("username") : null;
+	String username = (session != null) ? (String) session.getAttribute("username") : null;
 	DAO2 dao = new DAO2(DBConnect.getConn());
-	List<cart> listv = dao.getcart(ct);
+	List<cart> listv = dao.getcart(username);
 	for(cart v : listv)
 	{%>
 			
@@ -106,7 +106,7 @@ if (cookies[i].getName().equals("cart"))
 			
 				
 			<div class = "col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2">		
-				<a href='removecart?ie=<%=v.getPimage()%>&id=<%=N%>'><img src = "images/delete.jpg" alt="Remove" height= 25px></a>
+				<a href='removecart?ie=<%=v.getPimage()%>&id=<%=username%>'><img src = "images/delete.jpg" alt="Remove" height= 25px></a>
 
 				</div>
 				
