@@ -10,6 +10,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.conn.DBConnect;
 import com.dao.DAO;
@@ -36,7 +37,12 @@ public class addtocart extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			
-		String N = request.getParameter("N");
+		// Get the logged-in user's name from the session
+		HttpSession session = request.getSession(false);
+		String N = null;
+		if (session != null) {
+			N = (String) session.getAttribute("username");
+		}
 
 		// out.println(N);
 		String id=request.getParameter("id");
